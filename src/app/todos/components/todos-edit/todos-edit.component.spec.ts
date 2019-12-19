@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TodosEditComponent } from './todos-edit.component';
+import {TodosEditComponent} from './todos-edit.component';
+import {SharedModule} from '../../../shared/shared.module';
 
 describe('TodosEditComponent', () => {
   let component: TodosEditComponent;
@@ -8,9 +9,14 @@ describe('TodosEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodosEditComponent ]
+      imports: [
+        SharedModule
+      ],
+      declarations: [
+        TodosEditComponent
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
