@@ -17,7 +17,7 @@ export class TodosEditComponent implements OnInit, OnChanges {
   todoChanged = new EventEmitter<Todo>();
 
   @Output()
-  onCancel = new EventEmitter<void>();
+  cancelEditTodo = new EventEmitter<void>();
 
   todoForm: FormGroup;
 
@@ -39,7 +39,7 @@ export class TodosEditComponent implements OnInit, OnChanges {
   }
 
   public cancel() {
-    this.onCancel.emit();
+    this.cancelEditTodo.emit();
   }
 
   private initForm(todo: Todo): void {
