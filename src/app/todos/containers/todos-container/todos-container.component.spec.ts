@@ -8,7 +8,7 @@ describe('TodosContainerComponent', () => {
   let fixture: ComponentFixture<TodosContainerComponent>;
   let store: Store<any>;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
       declarations: [ TodosContainerComponent ]

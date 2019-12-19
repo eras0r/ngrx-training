@@ -8,7 +8,7 @@ describe('DashboardContainerComponent', () => {
   let fixture: ComponentFixture<DashboardContainerComponent>;
   let store: Store<any>;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ StoreModule.forRoot({}) ],
       declarations: [ DashboardContainerComponent ]
