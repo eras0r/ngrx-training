@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TodosEditContainerComponent} from './todos-edit-container.component';
 import {MemoizedSelector, Store} from '@ngrx/store';
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Todo} from '../../todos.model';
 import {SharedModule} from '../../../shared/shared.module';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
@@ -20,14 +20,12 @@ export class TodosEditStubComponent {
 describe('TodosDetailContainerComponent', () => {
   let component: TodosEditContainerComponent;
   let fixture: ComponentFixture<TodosEditContainerComponent>;
-  // let store: Store<any>;
   let mockStore: MockStore<TodosState>;
   let mockSelectedTodoSelector: MemoizedSelector<TodosState, Todo>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
-        // StoreModule.forRoot({}),
         SharedModule
       ],
       providers: [
