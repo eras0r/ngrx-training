@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TodosEditContainerComponent } from './todos-edit-container.component';
-import { Store, StoreModule } from '@ngrx/store';
+import {TodosEditContainerComponent} from './todos-edit-container.component';
+import {Store, StoreModule} from '@ngrx/store';
 
 describe('TodosDetailContainerComponent', () => {
   let component: TodosEditContainerComponent;
@@ -10,8 +10,8 @@ describe('TodosDetailContainerComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [ StoreModule.forRoot({}) ],
-      declarations: [ TodosEditContainerComponent ]
+      imports: [StoreModule.forRoot({})],
+      declarations: [TodosEditContainerComponent]
     });
 
     await TestBed.compileComponents();
@@ -20,7 +20,7 @@ describe('TodosDetailContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodosEditContainerComponent);
     component = fixture.componentInstance;
-    store = TestBed.get<Store>(Store);
+    store = TestBed.get<Store<any>>(Store);
 
     spyOn(store, 'dispatch').and.callThrough();
     fixture.detectChanges();

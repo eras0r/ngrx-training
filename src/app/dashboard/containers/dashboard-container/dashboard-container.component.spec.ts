@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardContainerComponent } from './dashboard-container.component';
-import { Store, StoreModule } from '@ngrx/store';
+import {DashboardContainerComponent} from './dashboard-container.component';
+import {Store, StoreModule} from '@ngrx/store';
 
 describe('DashboardContainerComponent', () => {
   let component: DashboardContainerComponent;
@@ -10,8 +10,8 @@ describe('DashboardContainerComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [ StoreModule.forRoot({}) ],
-      declarations: [ DashboardContainerComponent ]
+      imports: [StoreModule.forRoot({})],
+      declarations: [DashboardContainerComponent]
     });
 
     await TestBed.compileComponents();
@@ -20,7 +20,7 @@ describe('DashboardContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DashboardContainerComponent);
     component = fixture.componentInstance;
-    store = TestBed.get<Store>(Store);
+    store = TestBed.get<Store<any>>(Store);
 
     spyOn(store, 'dispatch').and.callThrough();
     fixture.detectChanges();
