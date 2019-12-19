@@ -9,6 +9,7 @@ import {TodosEffects} from './todos.effects';
 import {StoreModule} from '@ngrx/store';
 import * as todosReducer from './todos.reducer';
 import { TodosListComponent } from './components/todos-list/todos-list.component';
+import { TodosListEntryComponent } from './components/todos-list-entry/todos-list-entry.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TodosListComponent } from './components/todos-list/todos-list.component
     TodosContainerComponent,
     TodosListContainerComponent,
     TodosDetailContainerComponent,
-    TodosListComponent
+    TodosListComponent,
+    TodosListEntryComponent
   ],
   imports: [
     CommonModule,

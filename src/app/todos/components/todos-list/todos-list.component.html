@@ -1,4 +1,7 @@
 <p>todos-list works!</p>
 
 todos:
-<pre>{{todos | json}}</pre>
+
+<div class="row">
+  <app-todos-list-entry *ngFor="let todo of todos" [todo]="todo" class="col-sm-12"></app-todos-list-entry>
+</div>
