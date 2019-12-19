@@ -14,15 +14,7 @@ import {selectSelectedTodo} from '../../todos.selectors';
   template: ''
 })
 export class TodosEditStubComponent {
-
-  @Input()
-  todo: Todo;
-
-  @Output()
-  todoChanged = new EventEmitter<Todo>();
-
-  @Output()
-  cancelEditTodo = new EventEmitter<void>();
+  @Input() todo: Todo;
 }
 
 describe('TodosDetailContainerComponent', () => {

@@ -1,6 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TodosListComponent } from './todos-list.component';
+import {TodosListComponent} from './todos-list.component';
+import {Component, Input} from '@angular/core';
+import {Todo} from '../../todos.model';
+
+@Component({
+  selector: 'app-todos-list-entry',
+  template: ''
+})
+export class TodosListEntryStubComponent {
+  @Input() todo: Todo;
+}
 
 describe('TodosListComponent', () => {
   let component: TodosListComponent;
@@ -8,9 +18,11 @@ describe('TodosListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodosListComponent ]
+      declarations: [
+        TodosListComponent,
+        TodosListEntryStubComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
