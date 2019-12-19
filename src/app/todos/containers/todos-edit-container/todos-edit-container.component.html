@@ -1,5 +1,1 @@
-<p>todos-detail-container works!</p>
-
-selected todo: {{todo$ | async}}
-
 <app-todos-edit [todo]="todo$ | async" (todoChanged)="saveTodo($event)"></app-todos-edit>
