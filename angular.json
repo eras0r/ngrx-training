@@ -6,8 +6,13 @@
     "ngrx-training": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
+        "@ngrx/schematics:component": {
+          "styleext": "scss",
+          "changeDetection": "OnPush"
+        },
+        "@ngrx/schematics:container": {
+          "styleext": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "",
