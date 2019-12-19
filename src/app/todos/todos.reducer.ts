@@ -29,7 +29,6 @@ export const initialState: TodosState = {
 const todosReducer = createReducer(
   initialState,
 
-  on(TodosActions.loadTodos, state => state),
   on(TodosActions.removeCompletedTodos, (state) => {
     return {
       ...state, // copy the state

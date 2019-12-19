@@ -10,13 +10,13 @@ import * as TodosActions from './todos.actions';
 @Injectable()
 export class TodosEffects {
 
-  loadTodoss$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(TodosActions.loadTodos),
-      /** An EMPTY observable only emits completion. Replace with your own observable API request */
-      concatMap(() => EMPTY)
-    );
-  });
+  // loadTodoss$ = createEffect(() => {
+  //   return this.actions$.pipe(
+  //     ofType(TodosActions.loadTodos),
+  //     /** An EMPTY observable only emits completion. Replace with your own observable API request */
+  //     concatMap(() => EMPTY)
+  //   );
+  // });
 
   constructor(private actions$: Actions) {
   }
