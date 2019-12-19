@@ -1,7 +1,8 @@
+import {v4 as uuid} from 'uuid';
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {TodosState} from '../../todos.reducer';
-import {removeCompletedTodos} from '../../todos.actions';
+import {removeCompletedTodos, setSelectedTodo} from '../../todos.actions';
 
 @Component({
   selector: 'app-todos-container',
@@ -19,6 +20,11 @@ export class TodosContainerComponent implements OnInit {
 
   removeCompletedTodos(): void {
     this.store.dispatch(removeCompletedTodos());
+  }
+
+  createTodo(): void {
+    const newTodo = {id: uuid(), name: '', completed: false};
+    this.store.dispatch(setSelectedTodo({selectedTodo: newTodo}));
   }
 
 }
