@@ -1,4 +1,3 @@
-import {v4 as uuid} from 'uuid';
 import {Action, createReducer, on} from '@ngrx/store';
 import * as TodosActions from './todos.actions';
 import {Todo} from './todos.model';
@@ -23,7 +22,7 @@ export const initialState: TodosState = {
       completed: true
     }
   ],
-  selectedTodo: {id: uuid(), name: '', completed: false}
+  selectedTodo: null
 };
 
 const todosReducer = createReducer(
@@ -42,6 +41,12 @@ const todosReducer = createReducer(
       ...state,
       // apply selected todo
       selectedTodo
+    };
+  }),
+  on(TodosActions.resetSelectedTodo, (state) => {
+    return {
+      ...state,
+      selectedTodo: null
     };
   }),
   on(TodosActions.updateTodo, (state, {todo}) => {

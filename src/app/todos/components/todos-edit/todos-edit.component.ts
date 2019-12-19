@@ -16,6 +16,9 @@ export class TodosEditComponent implements OnInit, OnChanges {
   @Output()
   todoChanged = new EventEmitter<Todo>();
 
+  @Output()
+  onCancel = new EventEmitter<void>();
+
   todoForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -35,12 +38,14 @@ export class TodosEditComponent implements OnInit, OnChanges {
     this.todoChanged.emit(this.getTodo());
   }
 
-  updateText(): void {
-    this.todoChanged.emit(this.getTodo());
+  public cancel() {
+    this.onCancel.emit();
   }
 
   private initForm(todo: Todo): void {
-    this.todoForm = this.fb.group(todo);
+    if (todo) {
+      this.todoForm = this.fb.group(todo);
+    }
   }
 
   /**
@@ -49,6 +54,5 @@ export class TodosEditComponent implements OnInit, OnChanges {
   private getTodo(): Todo {
     return this.todoForm.value;
   }
-
 
 }

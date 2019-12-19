@@ -14,6 +14,10 @@ export const setSelectedTodo = createAction(
   props<{ selectedTodo: Todo }>()
 );
 
+export const resetSelectedTodo = createAction(
+  '[Todos] Reset Selected Todo'
+);
+
 export const updateTodo = createAction(
   '[Todos] Update Todo',
   props<{ todo: Todo }>()

@@ -5,7 +5,7 @@ import {selectSelectedTodo} from '../../todos.selectors';
 import {Observable} from 'rxjs';
 import {Todo} from '../../todos.model';
 import {FormBuilder} from '@angular/forms';
-import {updateTodo} from '../../todos.actions';
+import {resetSelectedTodo, updateTodo} from '../../todos.actions';
 
 @Component({
   selector: 'app-todos-edit-container',
@@ -19,7 +19,6 @@ export class TodosEditContainerComponent implements OnInit {
 
   constructor(private store: Store<TodosState>, private fb: FormBuilder) {
     this.todo$ = this.store.pipe(select(selectSelectedTodo));
-
   }
 
   ngOnInit() {
@@ -28,6 +27,10 @@ export class TodosEditContainerComponent implements OnInit {
   saveTodo(todo: Todo) {
     console.log('todo changed to: ', todo);
     this.store.dispatch(updateTodo({todo}));
+  }
+
+  cancelEditTodo(): void {
+    this.store.dispatch(resetSelectedTodo());
   }
 
 }
