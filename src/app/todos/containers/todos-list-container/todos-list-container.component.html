@@ -1,4 +1,3 @@
 <p>todos-list-container works!</p>
 
-todos:
-<pre>{{todos$ | async | json}}</pre>
+<app-todos-list [todos]="todos$ | async" (selectTodo)="changeSelectedTodo($event)"></app-todos-list>

@@ -16,10 +16,14 @@ export class TodosListContainerComponent implements OnInit {
   todos$: Observable<Todo[]>;
 
   constructor(private store: Store<TodosState>) {
-    this.todos$ = this.store.pipe(select(selectTodos));
   }
 
   ngOnInit() {
+    this.todos$ = this.store.pipe(select(selectTodos));
+  }
+
+  changeSelectedTodo(todo: Todo): void {
+
   }
 
 }

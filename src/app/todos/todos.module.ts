@@ -8,13 +8,15 @@ import {EffectsModule} from '@ngrx/effects';
 import {TodosEffects} from './todos.effects';
 import {StoreModule} from '@ngrx/store';
 import * as todosReducer from './todos.reducer';
+import { TodosListComponent } from './components/todos-list/todos-list.component';
 
 
 @NgModule({
   declarations: [
     TodosContainerComponent,
     TodosListContainerComponent,
-    TodosDetailContainerComponent
+    TodosDetailContainerComponent,
+    TodosListComponent
   ],
   imports: [
     CommonModule,
