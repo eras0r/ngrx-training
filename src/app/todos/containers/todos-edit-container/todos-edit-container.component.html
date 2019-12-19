@@ -2,4 +2,4 @@
 
 selected todo: {{todo$ | async}}
 
-<app-todos-edit [todo]="todo$ | async"></app-todos-edit>
+<app-todos-edit [todo]="todo$ | async" (todoChanged)="saveTodo($event)"></app-todos-edit>

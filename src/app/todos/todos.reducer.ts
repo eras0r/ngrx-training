@@ -39,10 +39,26 @@ const todosReducer = createReducer(
   }),
   on(TodosActions.setSelectedTodo, (state, {selectedTodo}) => {
     return {
-      ...state, // copy the state
+      ...state,
       // apply selected todo
       selectedTodo
     };
+  }),
+  on(TodosActions.updateTodo, (state, {todo}) => {
+    const newState = {
+      ...state,
+      // copy todos
+      todos: [...state.todos]
+    };
+
+    const idx = newState.todos.findIndex((t) => t.id === todo.id);
+    if (idx > -1) {
+      newState.todos[idx] = todo;
+    } else {
+      newState.todos.push(todo);
+    }
+
+    return newState;
   })
 );
 

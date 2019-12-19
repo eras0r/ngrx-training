@@ -3,23 +3,26 @@
 todo:
 <pre>{{todo | json}}</pre>
 
-<form #todoForm="ngForm" [formGroup]="todoFormGroup">
-  <!--  <input name="name" id="name" type="text" [(ngModel)]="todo.name">-->
-
+<form [formGroup]="todoForm">
   <div class="form-group">
     <label for="id">ID</label>
-    <input type="email" class="form-control" id="id" formControlName="name" disabled>
+    <input type="text" class="form-control" id="id" formControlName="id" disabled>
   </div>
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="I want to..." formControlName="name"
-           (blur)="updateText()">
+    <input type="text" class="form-control" id="name" placeholder="I want to..." formControlName="name">
   </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="completed" formControlName="completed">
+    <label class="form-check-label" for="completed">Completed</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="saveTodo()">Save</button>
 
   <div class="row">
     <div class="col-sm-12">
       debug<br>
-      <pre>{{todoFormGroup.value | json}}</pre>
+      <pre>{{todoForm.value | json}}</pre>
     </div>
   </div>
 

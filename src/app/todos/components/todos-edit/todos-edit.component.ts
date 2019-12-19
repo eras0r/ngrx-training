@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Todo} from '../../todos.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
@@ -8,7 +8,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./todos-edit.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodosEditComponent implements OnInit {
+export class TodosEditComponent implements OnInit, OnChanges {
 
   @Input()
   todo: Todo;
@@ -16,24 +16,39 @@ export class TodosEditComponent implements OnInit {
   @Output()
   todoChanged = new EventEmitter<Todo>();
 
-  todoFormGroup: FormGroup;
+  todoForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.todoFormGroup = this.fb.group(this.todo);
+
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.todo && changes.todo.currentValue) {
+      this.initForm(changes.todo.currentValue);
+    }
+  }
+
+  public saveTodo(): void {
+    this.todoChanged.emit(this.getTodo());
   }
 
   updateText(): void {
     this.todoChanged.emit(this.getTodo());
   }
 
+  private initForm(todo: Todo): void {
+    this.todoForm = this.fb.group(todo);
+  }
+
   /**
    * gets the current todo from the form.
    */
   private getTodo(): Todo {
-    return this.todoFormGroup.value;
+    return this.todoForm.value;
   }
+
 
 }
