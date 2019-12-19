@@ -3,5 +3,5 @@
   &nbsp;
   <label for="completed-{{todo.id}}">{{todo.name}}</label>
   &nbsp;
-  <span (click)="selectTodo.emit(todo)">edit</span>
+  <button type="button" (click)="selectTodo.emit(todo)" class="btn btn-secondary btn-sm">Edit</button>
 </li>
