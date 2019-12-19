@@ -16,6 +16,8 @@ describe('TodosListEntryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodosListEntryComponent);
     component = fixture.componentInstance;
+    component.todo = {id: '1', name: 'eat a steak', completed: false};
+
     fixture.detectChanges();
   });
 
