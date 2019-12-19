@@ -1,3 +1,4 @@
+import {v4 as uuid} from 'uuid';
 import {Action, createReducer, on} from '@ngrx/store';
 import * as TodosActions from './todos.actions';
 import {Todo} from './todos.model';
@@ -12,12 +13,12 @@ export interface TodosState {
 export const initialState: TodosState = {
   todos: [
     {
-      id: '1',
+      id: uuid(),
       name: 'open',
       completed: false
     },
     {
-      id: '2',
+      id: uuid(),
       name: 'done',
       completed: true
     }
