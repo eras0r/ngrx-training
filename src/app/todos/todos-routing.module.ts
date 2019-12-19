@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {TodosContainerComponent} from './todos-container/todos-container.component';
+import {TodosContainerComponent} from './containers/todos-container/todos-container.component';
 
 const routes: Routes = [
   {

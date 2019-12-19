@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {TodosState} from '../../todos.reducer';
 
 @Component({
   selector: 'app-todos-detail-container',
@@ -9,7 +10,8 @@ import { Store } from '@ngrx/store';
 })
 export class TodosDetailContainerComponent implements OnInit {
 
-  constructor(private store: Store<any>) { }
+  constructor(private store: Store<TodosState>) {
+  }
 
   ngOnInit() {
   }
