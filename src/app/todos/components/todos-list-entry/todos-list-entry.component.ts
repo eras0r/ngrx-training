@@ -15,6 +15,9 @@ export class TodosListEntryComponent implements OnInit {
   @Output()
   selectTodo = new EventEmitter<Todo>();
 
+  @Output()
+  toggleTodo = new EventEmitter<Todo>();
+
   constructor() {
   }
 

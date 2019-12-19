@@ -1,1 +1,7 @@
-<div (click)="selectTodo.emit(todo)">{{todo | json}}</div>
+<li class="list-group-item">
+  <input id="completed-{{todo.id}}" type="checkbox" [checked]="todo.completed" (change)="toggleTodo.emit(todo)">
+  &nbsp;
+  <label for="completed-{{todo.id}}">{{todo.name}}</label>
+  &nbsp;
+  <span (click)="selectTodo.emit(todo)">edit</span>
+</li>

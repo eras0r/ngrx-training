@@ -22,3 +22,8 @@ export const updateTodo = createAction(
   '[Todos] Update Todo',
   props<{ todo: Todo }>()
 );
+
+export const toggleTodo = createAction(
+  '[Todos] Toggle Todo',
+  props<{ todo: Todo }>()
+);

@@ -52,7 +52,7 @@ const todosReducer = createReducer(
   on(TodosActions.updateTodo, (state, {todo}) => {
     const newState = {
       ...state,
-      // copy todos
+      // copy todos array
       todos: [...state.todos]
     };
 
@@ -64,6 +64,26 @@ const todosReducer = createReducer(
     }
 
     return newState;
+  }),
+  on(TodosActions.toggleTodo, (state, {todo}) => {
+    const idx = state.todos.findIndex((t) => t.id === todo.id);
+    if (idx > -1) {
+      const newState = {
+        ...state,
+        // copy todos array
+        todos: [
+          ...state.todos
+        ]
+      };
+      newState.todos[idx] = {
+        ...todo, // copy the changed todo
+        completed: !todo.completed // toggle completed state
+      };
+      return newState;
+    }
+
+    // todo with id was not found -> no changes
+    return state;
   })
 );
 

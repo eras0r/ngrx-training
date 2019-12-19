@@ -1,3 +1,4 @@
 <p>todos-list-container works!</p>
 
-<app-todos-list [todos]="todos$ | async" (selectTodo)="changeSelectedTodo($event)"></app-todos-list>
+<app-todos-list [todos]="todos$ | async" (selectTodo)="changeSelectedTodo($event)"
+                (toggleTodo)="toggleTodo($event)"></app-todos-list>
