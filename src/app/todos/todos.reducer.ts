@@ -29,11 +29,9 @@ const todosReducer = createReducer(
   on(TodosActions.loadTodos, state => state),
   on(TodosActions.removeCompletedTodos, (state) => {
     return {
-      ...state,
-      todos: [
-        ...state.todos // copy todos array
-          .filter((t) => !t.completed)
-      ]
+      ...state, // copy the state
+      // no need to copy array (as filter returns a new array!)
+      todos: state.todos.filter((t) => !t.completed)
     };
   })
 );
