@@ -3,5 +3,5 @@
 todos:
 
 <div class="row">
-  <app-todos-list-entry *ngFor="let todo of todos" [todo]="todo" class="col-sm-12"></app-todos-list-entry>
+  <app-todos-list-entry *ngFor="let todo of todos" [todo]="todo" (selectTodo)="selectTodo.emit($event)" class="col-sm-12"></app-todos-list-entry>
 </div>

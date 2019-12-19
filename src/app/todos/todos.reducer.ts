@@ -1,3 +1,4 @@
+import {v4 as uuid} from 'uuid';
 import {Action, createReducer, on} from '@ngrx/store';
 import * as TodosActions from './todos.actions';
 import {Todo} from './todos.model';
@@ -6,6 +7,7 @@ export const todosFeatureKey = 'todos';
 
 export interface TodosState {
   todos: Todo [];
+  selectedTodo: Todo;
 }
 
 export const initialState: TodosState = {
@@ -20,7 +22,8 @@ export const initialState: TodosState = {
       name: 'done',
       completed: true
     }
-  ]
+  ],
+  selectedTodo: {id: uuid(), name: '', completed: false}
 };
 
 const todosReducer = createReducer(
@@ -32,6 +35,13 @@ const todosReducer = createReducer(
       ...state, // copy the state
       // no need to copy array (as filter returns a new array!)
       todos: state.todos.filter((t) => !t.completed)
+    };
+  }),
+  on(TodosActions.setSelectedTodo, (state, {selectedTodo}) => {
+    return {
+      ...state, // copy the state
+      // apply selected todo
+      selectedTodo
     };
   })
 );

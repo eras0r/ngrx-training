@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Todo} from '../../todos.model';
 import {TodosState} from '../../todos.reducer';
 import {selectTodos} from '../../todos.selectors';
+import {setSelectedTodo} from '../../todos.actions';
 
 @Component({
   selector: 'app-todos-list-container',
@@ -23,7 +24,8 @@ export class TodosListContainerComponent implements OnInit {
   }
 
   changeSelectedTodo(todo: Todo): void {
-
+    console.warn('selected todo: ', todo);
+    this.store.dispatch(setSelectedTodo({selectedTodo: todo}));
   }
 
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from '../../todos.model';
 
 @Component({
@@ -11,6 +11,9 @@ export class TodosListEntryComponent implements OnInit {
 
   @Input()
   todo: Todo;
+
+  @Output()
+  selectTodo = new EventEmitter<Todo>();
 
   constructor() {
   }
